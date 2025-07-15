@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+
+<html lang="ar">
+<head>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="utf-8"/>
+<title>تقييم سعر حساب PUBG</title>
+<style>
+    :root {
+      --main-color: #ffcc00;
+      --bg-color: #1e1e2f;
+      --text-color: #ffffff;
+      --input-bg: #2c2c3e;
+      --accent-color: #00c3ff;
+    }
+
+    body {
+      direction: rtl;
+      font-family: Arial;
+      background-color: #f8f9fa;
+      padding: 20px; box-sizing: border-box;
+    }
+    .box {
+      background: white;
+      padding: 20px; box-sizing: border-box;
+      border-radius: 10px;
+      max-width: 700px; width: 100%;
+      margin: auto;
+      box-shadow: 0 0 10px #ccc;
+    }
+    label { margin-bottom: 4px;
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+    }
+    input[type="number"], select { background-color: var(--input-bg); border: none; color: white;
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+    }
+    button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: var(--accent-color);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #009ccf;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 22px;
+      color: green;
+      font-weight: bold;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 13px;
+      color: #888;
+    }
+    .logo {
+      display: block;
+      margin: 0 auto 20px auto;
+      max-width: 150px;
+    }
+  </style>
+</head>
+<body>
+<div class="box">
+<!-- صورة ببجي الشهيرة -->
+<img alt="PUBG Logo" class="logo" src="https://upload.wikimedia.org/wikipedia/en/1/1e/PUBG_game_logo.svg"/>
+<h2 style="text-align:center; color: var(--main-color); margin-bottom: 30px;">🎮 حاسبة سعر حساب PUBG</h2>
+<!-- الأسئلة -->
+<label>هل تمتلك سكن M4 الثلجي؟</label>
+<select id="hasGlacier">
+<option>لا</option>
+<option>نعم</option>
+</select>
+<label>مستوى M4 الثلجي:</label>
+<select id="glacierLevel">
+<option>لا يوجد</option>
+<option>1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">Max</option>
+</select>
+<label>عدد الأسلحة المتطورة (غير M4 الثلجي):</label>
+<input id="evoGuns" min="0" type="number"/>
+<label>عدد البدلات Mythic:</label>
+<input id="mythicSuits" min="0" type="number"/>
+<label>عدد بدلات X-Suit:</label>
+<input id="xSuits" min="0" type="number"/>
+<label>عدد السيارات الرياضية:</label>
+<input id="cars" min="0" type="number"/>
+<label>عدد المواسم المشحونة:</label>
+<input id="seasons" min="0" type="number"/>
+<label>عدد الألقاب:</label>
+<input id="titles" min="0" type="number"/>
+<label>هل الحساب يحتوي على أسلوب خرافي؟</label>
+<select id="hasStyle">
+<option>لا</option>
+<option>نعم</option>
+</select>
+<label>هل توجد شدات (UC) حالياً في الحساب؟</label>
+<select id="hasUC">
+<option>لا</option>
+<option>نعم</option>
+</select>
+<label>مستوى الحساب (من 1 إلى 100):</label>
+<input id="accountLevel" max="100" min="1" type="number"/>
+<label>ما مستوى TDM؟ (من 1 إلى 100):</label>
+<input id="tdmLevel" max="100" min="1" type="number"/>
+<label>عدد المتابعين/الأصدقاء:</label>
+<input id="followers" min="0" type="number"/>
+<label>كم شعبية الحساب؟</label>
+<input id="popularity" min="0" type="number"/>
+<button onclick="calculatePrice()">احسب السعر</button>
+<div class="result" id="result"></div>
+</div><img alt="PUBG Character" src="https://i.imgur.com/OKaKp5L.png" style="display:block; margin: 0 auto 20px auto; max-width: 150px;"/>
+<div class="footer">
+    جميع الحقوق محفوظة © 2025 - تصميم: <strong>Khalil</strong>
+</div>
+<script>
+    function calculatePrice() {
+      let price = 0;
+
+      const hasGlacier = +document.getElementById("hasGlacier").value;
+      const glacierLevel = +document.getElementById("glacierLevel").value;
+      const evoGuns = +document.getElementById("evoGuns").value;
+      const mythicSuits = +document.getElementById("mythicSuits").value;
+      const xSuits = +document.getElementById("xSuits").value;
+      const cars = +document.getElementById("cars").value;
+      const seasons = +document.getElementById("seasons").value;
+      const titles = +document.getElementById("titles").value;
+      const hasStyle = +document.getElementById("hasStyle").value;
+      const hasUC = +document.getElementById("hasUC").value;
+      const accountLevel = +document.getElementById("accountLevel").value;
+      const tdmLevel = +document.getElementById("tdmLevel").value;
+      const followers = +document.getElementById("followers").value;
+      const popularity = +document.getElementById("popularity").value;
+
+      // M4 Glacier
+      if (hasGlacier) {
+        price += 2.5 + (glacierLevel * 2.5);
+      }
+
+      // Evo Guns
+      price += evoGuns * 3.75;
+
+      // Mythic Suits
+      price += mythicSuits * 2.5;
+
+      // X-Suits
+      price += xSuits * 10;
+
+      // Cars
+      price += cars * 6.25;
+
+      // Seasons
+      price += seasons * 0.75;
+
+      // Titles
+      price += titles * 0.75;
+
+      // Style
+      if (hasStyle) price += 3.75;
+
+      // UC
+      if (hasUC) price += 1.25;
+
+      // Account level
+      if (accountLevel >= 70) price += 1.25;
+      else if (accountLevel >= 60) price += 0.75;
+      else if (accountLevel >= 50) price += 0.25;
+
+      // TDM level
+      if (tdmLevel >= 90) price += 1.25;
+      else if (tdmLevel >= 70) price += 0.75;
+      else if (tdmLevel >= 50) price += 0.25;
+
+      // Followers
+      price += Math.min(followers / 100, 2.5);
+
+      // Popularity
+      price += Math.min(popularity / 100000, 2.5);
+
+      document.getElementById("result").innerText = "السعر التقريبي لحسابك: " + price.toFixed(2) + " دولار أمريكي";
+    }
+  </script>
+</body>
+</html>
